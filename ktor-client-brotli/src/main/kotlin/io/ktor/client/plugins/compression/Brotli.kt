@@ -1,5 +1,8 @@
 package io.ktor.client.plugins.compression
 
+import io.ktor.util.ContentEncoder
+
 fun ContentEncodingConfig.brotli(quality: Float? = null) {
-    customEncoder(BrotliEncoder, quality)
+    val encoder: ContentEncoder = BrotliEncoder
+    customEncoder(encoder, quality)
 }

@@ -53,4 +53,11 @@ object DataPreferences : GlobalPreferencesHolder() {
         Daily(displayName = { stringResource(R.string.daily) }, period = 1.days),
         Weekly(displayName = { stringResource(R.string.weekly) }, period = 7.days)
     }
+
+    // ── Cache Export ─────────────────────────────────────────
+    var cacheExportEnabled by boolean(false)
+    var cacheExportPath by string("")
+    var cacheExportIntervalMs by long(300_000L)
+
+    var exportedVideoIds by stringSet(emptySet<String>())
 }

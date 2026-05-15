@@ -48,6 +48,7 @@ import app.vitune.android.ui.components.themed.SecondaryTextButton
 import app.vitune.android.ui.components.themed.SliderDialog
 import app.vitune.android.ui.components.themed.SliderDialogBody
 import app.vitune.android.ui.screens.Route
+import app.vitune.android.ui.screens.settings.CacheExportSettingsSection
 import app.vitune.android.ui.screens.logsRoute
 import app.vitune.android.utils.findActivity
 import app.vitune.android.utils.intent
@@ -144,6 +145,9 @@ fun OtherSettings() {
                     isEnabled = queriesCount > 0
                 )
             }
+        }
+        SettingsGroup(title = "Cache Export") {
+            CacheExportSettingsSection()
         }
         SettingsGroup(title = stringResource(R.string.playlists)) {
             SwitchSettingsEntry(

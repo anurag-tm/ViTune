@@ -1,7 +1,6 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
@@ -45,7 +44,7 @@ android {
 
     splits {
         abi {
-            isEnable = true
+            isEnable = false
             reset()
             isUniversalApk = false
         }
@@ -145,10 +144,9 @@ afterEvaluate {
 }
 
 kotlin {
-    jvmToolchain(libs.versions.jvm.get().toInt())
+    jvmToolchain(17)
 
     compilerOptions {
-        languageVersion.set(KotlinVersion.KOTLIN_2_5)
 
         freeCompilerArgs.addAll(
             "-Xcontext-parameters",
@@ -171,7 +169,10 @@ composeCompiler {
 
 chaquopy {
     defaultConfig {
-        version = "3.14"
+        version = "3.13"
+
+        buildPython("C:/Users/anura/Miniconda3/python.exe")
+
         pip {
             install("yt-dlp>=2026.03.17")
             install("yt-dlp-ejs")

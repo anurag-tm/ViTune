@@ -1,14 +1,14 @@
 [versions]
-kotlin = "2.3.20"
-ksp = "2.3.4"
+kotlin = "2.3.21"
+ksp = "2.3.7"
 
 #noinspection UnusedVersionCatalogEntry
-jvm = "25"
-agp = "9.1.0"
+jvm = "17"
+agp = "8.9.3"
 
 room = "2.8.4"
 media3 = "1.10.0"
-ktor = "3.4.2"
+ktor = "3.0.1"
 detekt = "1.23.8"
 workmanager = "2.11.2"
 credentials = "1.5.0"
@@ -19,6 +19,7 @@ android_application = { id = "com.android.application", version.ref = "agp" }
 android_library = { id = "com.android.library", version.ref = "agp" }
 android_lint = { id = "com.android.lint", version.ref = "agp" }
 kotlin_jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin_android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin_serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlin_compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin_parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
@@ -83,5 +84,5 @@ monet = { module = "com.github.KieronQuinn:MonetCompat", version = "0.4.1" }
 
 desugaring = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
 
-detekt_compose = { module = "io.nlopez.compose.rules:detekt", version = "0.5.6" }
+detekt_compose = { module = "io.nlopez.compose.rules:detekt", version = "0.4.22" }
 detekt_formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }

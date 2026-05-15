@@ -293,6 +293,7 @@ class PlayerService : InvincibleService(), Player.Listener, PlaybackStatsListene
         )
 
         cache = createCache(this)
+        CacheExportManager.start(applicationContext, cache)
         player = ExoPlayer.Builder(this, createRendersFactory(), createMediaSourceFactory())
             .setHandleAudioBecomingNoisy(true)
             .setWakeMode(C.WAKE_MODE_LOCAL)
@@ -435,7 +436,7 @@ class PlayerService : InvincibleService(), Player.Listener, PlaybackStatsListene
             coroutineScope.cancel()
             glyphInterface.close()
         }
-
+        CacheExportManager.stop()
         super.onDestroy()
     }
 

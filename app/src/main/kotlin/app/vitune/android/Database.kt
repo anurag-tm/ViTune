@@ -109,6 +109,9 @@ interface Database {
 @Dao
 @Suppress("TooManyFunctions")
 interface DatabaseAccessor {
+
+    @Query("SELECT id, title, artistsText, thumbnailUrl, durationText FROM Song WHERE id = :videoId LIMIT 1")
+    suspend fun songInfo(videoId: String): SongInfo?
     @Transaction
     @Query("SELECT * FROM Song WHERE id NOT LIKE '$LOCAL_KEY_PREFIX%' ORDER BY ROWID ASC")
     @RewriteQueriesToDropUnusedColumns
@@ -1140,3 +1143,10 @@ fun transaction(block: () -> Unit) = with(DatabaseDependency.instance) {
         runInTransaction(block)
     }
 }
+data class SongInfo(
+    val id: String,
+    val title: String,
+    val artistsText: String?,
+    val thumbnailUrl: String?,
+    val durationText: String?
+)

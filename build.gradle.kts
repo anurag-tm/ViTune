@@ -2,6 +2,7 @@ import io.gitlab.arturbosch.detekt.Detekt
 
 plugins {
     alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.kotlin.serialization) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
@@ -22,6 +23,14 @@ allprojects {
     version = "1.1.9"
 
     apply(plugin = "io.gitlab.arturbosch.detekt")
+
+    configurations.all {
+        resolutionStrategy.eachDependency {
+            if (requested.group == "org.jetbrains.kotlin") {
+                useVersion(libs.versions.kotlin.get())
+            }
+        }
+    }
 
     detekt {
         buildUponDefaultConfig = true
